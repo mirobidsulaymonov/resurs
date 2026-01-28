@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>O'quv Portali</title>
+    <style>
+        :root { --dark: #2c3e50; --green: #27ae60; --blue: #3498db; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; height: 100vh; background: #f4f7f6; overflow: hidden; }
+        #sidebar { width: 380px; background: var(--dark); color: white; overflow-y: auto; padding: 15px; box-shadow: 4px 0 10px rgba(0,0,0,0.2); }
+        .nav-header { text-align: center; color: var(--green); border-bottom: 2px solid var(--green); padding-bottom: 10px; margin-bottom: 20px; }
+        .yonalish { background: #1a252f; padding: 12px; margin-top: 10px; cursor: pointer; border-radius: 5px; font-weight: bold; border-left: 5px solid var(--blue); }
+        .fan { background: #34495e; padding: 10px; margin: 5px 0 0 15px; cursor: pointer; border-radius: 4px; font-size: 0.9rem; border-left: 4px solid var(--green); }
+        .turi { background: #455a64; padding: 8px; margin: 5px 0 0 30px; cursor: pointer; border-radius: 3px; font-size: 0.85rem; color: #ecf0f1; }
+        .file-list { display: none; margin-left: 45px; border-left: 1px dashed #7f8c8d; }
+        .file-link { display: block; padding: 6px 12px; color: #bdc3c7; text-decoration: none; font-size: 0.8rem; }
+        .file-link:hover { color: white; background: var(--green); border-radius: 3px; }
+        #viewer-container { flex-grow: 1; display: flex; flex-direction: column; }
+        #top-bar { padding: 15px; background: white; border-bottom: 1px solid #ddd; font-weight: bold; color: var(--dark); }
+        iframe { width: 100%; height: 100%; border: none; }
+        .empty-view { display: flex; align-items: center; justify-content: center; height: 100%; color: #95a5a6; flex-direction: column; }
+    </style>
+</head>
+<body>
+
+<div id="sidebar">
+    <h2 class="nav-header">MUNDARIJA</h2>
+
+    <div class="yonalish" onclick="toggle('yon1')">🎓 IQTISODIYOT YO'NALISHI</div>
+    <div id="yon1" style="display:none">
+        <div class="fan" onclick="toggle('yon1f1')">📘 IQTISODIYOTDA AKTT</div>
+        <div id="yon1f1" style="display:none">
+            <div class="turi" onclick="toggle('yon1f1m')">✍️ Ma'ruzalar</div>
+            <div id="yon1f1m" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('IQ 1-ma\'ruza.pdf')">1-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 2-ma\'ruza.pdf')">2-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 3-ma\'ruza.pdf')">3-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 4-ma\'ruza.pdf')">4-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 5-ma\'ruza.pdf')">5-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 6-ma\'ruza.pdf')">6-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 7-ma\'ruza.pdf')">7-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 8-ma\'ruza.pdf')">8-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 9-ma\'ruza.pdf')">9-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 10-ma\'ruza.pdf')">10-Ma'ruza</a>
+            </div>
+            <div class="turi" onclick="toggle('yon1f1a')">🛠 Amaliy mashg'ulotlar</div>
+            <div id="yon1f1a" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('IQ 1-amaliy mashg\'ulot.pdf')">1-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 2-amaliy mashg\'ulot.pdf')">2-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 3-amaliy mashg\'ulot.pdf')">3-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 4-amaliy mashg\'ulot.pdf')">4-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 5-amaliy mashg\'ulot.pdf')">5-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 6-amaliy mashg\'ulot.pdf')">6-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 7-amaliy mashg\'ulot.pdf')">7-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 8-amaliy mashg\'ulot.pdf')">8-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 9-amaliy mashg\'ulot.pdf')">9-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 10-amaliy mashg\'ulot.pdf')">10-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 11-amaliy mashg\'ulot.pdf')">11-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 12-amaliy mashg\'ulot.pdf')">12-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 13-amaliy mashg\'ulot.pdf')">13-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 14-amaliy mashg\'ulot.pdf')">14-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 15-amaliy mashg\'ulot.pdf')">15-Amaliy</a>
+            </div>
+            <div class="turi" onclick="toggle('yon1f1l')">🔬 Laboratoriya ishlari</div>
+            <div id="yon1f1l" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('IQ 1-Laboratoriya ishi.pdf')">1-Lab</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 2-Laboratoriya ishi.pdf')">2-Lab</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 3-Laboratoriya ishi.pdf')">3-Lab</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 4-Laboratoriya ishi.pdf')">4-Lab</a>
+                <a href="#" class="file-link" onclick="openPdf('IQ 5-Laboratoriya ishi.pdf')">5-Lab</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="yonalish" onclick="toggle('yon2')">🎓 BIOTEXNOLOGIYA YO'NALISHI</div>
+    <div id="yon2" style="display:none">
+        <div class="fan" onclick="toggle('yon2f1')">📘 TEXNIK TIZIMLARDA AKT</div>
+        <div id="yon2f1" style="display:none">
+            <div class="turi" onclick="toggle('yon2f1m')">✍️ Ma'ruzalar</div>
+            <div id="yon2f1m" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 1-maruza.pdf')">1-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 2-maruza.pdf')">2-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 3-maruza.pdf')">3-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 4-maruza.pdf')">4-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 5-maruza.pdf')">5-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 6-maruza.pdf')">6-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 7-maruza.pdf')">7-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 8-maruza.pdf')">8-Ma'ruza</a>
+            </div>
+            <div class="turi" onclick="toggle('yon2f1a')">🛠 Amaliy mashg'ulotlar</div>
+            <div id="yon2f1a" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 1 amaliy mashg\'ulot.pdf')">1-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 2 amaliy mashg\'ulot.pdf')">2-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 3 amaliy mashg\'ulot.pdf')">3-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 4 amaliy mashg\'ulot.pdf')">4-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 5 amaliy mashg\'ulot.pdf')">5-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 6 amaliy mashg\'ulot.pdf')">6-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 7 amaliy mashg\'ulot.pdf')">7-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 8 amaliy mashg\'ulot.pdf')">8-Amaliy</a>
+            </div>
+            <div class="turi" onclick="toggle('yon2f1l')">🔬 Laboratoriya ishlari</div>
+            <div id="yon2f1l" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('BIO_TXAKT 1-laboratoriya.pdf')">1-Lab ishi</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TXAKT 2-laboratoriya.pdf')">2-Lab ishi</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TXAKT 3-laboratoriya.pdf')">3-Lab ishi</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TXAKT 4-laboratoriya.pdf')">4-Lab ishi</a>
+            </div>
+        </div>
+        <div class="fan" onclick="toggle('yon2f2')">📘 Muhandislik va kompyuter grafikasi</div>
+        <div id="yon2f2" style="display:none">
+            <div class="turi" onclick="toggle('yon2f2m')">✍️ Ma'ruzalar</div>
+            <div id="yon2f2m" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('Bio 6-ma\'ruza.pdf')">6-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('Bio 7-ma\'ruza.pdf')">7-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('Bio 8-ma\'ruza.pdf')">8-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('Bio 9-ma\'ruza.pdf')">9-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('Bio 10-ma\'ruza.pdf')">10-Ma'ruza</a>
+            </div>
+            <div class="turi" onclick="toggle('yon2f2a')">🛠 Amaliy mashg'ulotlar</div>
+            <div id="yon2f2a" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('Bio 6-amaliy.pdf')">6-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Bio 7-amaliy.pdf')">7-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Bio 8-amaliy.pdf')">8-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Bio 9-amaliy.pdf')">9-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Bio 10-amaliy.pdf')">10-Amaliy</a>
+            </div>
+            <div class="turi" onclick="toggle('yon2f2l')">🔬 Laboratoriya ishlari</div>
+            <div id="yon2f2l" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('Bio 6-Labaratoriya ishi.pdf')">6-Lab</a>
+                <a href="#" class="file-link" onclick="openPdf('Bio 7-Labaratoriya ishi.pdf')">7-Lab</a>
+                <a href="#" class="file-link" onclick="openPdf('Bio 8-Labaratoriya ishi.pdf')">8-Lab</a>
+                <a href="#" class="file-link" onclick="openPdf('Bio 9-Labaratoriya ishi.pdf')">9-Lab</a>
+                <a href="#" class="file-link" onclick="openPdf('Bio 10-Labaratoriya ishi.pdf')">10-Lab</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="yonalish" onclick="toggle('yon3')">🎓 MEXANIZATSIYA YO'NALISHI (2-kurs) </div>
+    <div id="yon3" style="display:none">
+        <div class="fan" onclick="toggle('yon3f1')">📘 Muhandislik va kompyuter grafikasi</div>
+        <div id="yon3f1" style="display:none">
+            <div class="turi" onclick="toggle('yon3f1m')">✍️ Ma'ruzalar</div>
+            <div id="yon3f1m" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('Mex 6-ma\'ruza.pdf')">6-ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('Mex 7-ma\'ruza.pdf')">7-ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('Mex 8-ma\'ruza.pdf')">8-ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('Mex 9-ma\'ruza.pdf')">9-ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('Mex 10-ma\'ruza.pdf')">10-ma'ruza</a>
+            </div>
+            <div class="turi" onclick="toggle('yon3f1a')">🛠 Amaliy</div>
+            <div id="yon3f1a" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('Mex 11-amaliy.pdf')">11-amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Mex 12-amaliy.pdf')">12-amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Mex 13-amaliy.pdf')">13-amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Mex 14-amaliy.pdf')">14-amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Mex 15-amaliy.pdf')">15-amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Mex 16-amaliy.pdf')">16-amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Mex 17-amaliy.pdf')">17-amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Mex 18-amaliy.pdf')">18-amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Mex 19-amaliy.pdf')">19-amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Mex 20-amaliy.pdf')">20-amaliy</a>
+            </div>
+            <div class="turi" onclick="toggle('yon3f1l')">🔬 Laboratoriya</div>
+            <div id="yon3f1l" class="file-list"><a href="#" class="file-link">Laboratoriya mashg'ulotlari mavjud emas!!!</a></div>
+        </div>
+    </div>
+
+    <div class="yonalish" onclick="toggle('yon4')">🎓 OZIQ-OVQAT TEXNOLOGIYASI YO'NALISHI</div>
+    <div id="yon4" style="display:none">
+        <div class="fan" onclick="toggle('yon4f1')">📘 Muhandislik va kompyuter grafikasi</div>
+        <div id="yon4f1" style="display:none">
+            <div class="turi" onclick="toggle('yon4f1m')">✍️ Ma'ruzalar</div>
+            <div id="yon4f1m" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('Oz 6-ma\'ruza.pdf')">6-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 7-ma\'ruza.pdf')">7-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 8-ma\'ruza.pdf')">8-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 9-ma\'ruza.pdf')">9-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 10-ma\'ruza.pdf')">10-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 11-ma\'ruza.pdf')">11-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 12-ma\'ruza.pdf')">12-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 13-ma\'ruza.pdf')">13-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 14-ma\'ruza.pdf')">14-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 15-ma\'ruza.pdf')">15-Ma'ruza</a>
+            </div>
+            <div class="turi" onclick="toggle('yon4f1a')">🛠 Amaliy</div>
+            <div id="yon4f1a" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('Oz 11-amaliy.pdf')">11-amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 12-amaliy.pdf')">12-amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 13-amaliy.pdf')">13-amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 14-amaliy.pdf')">14-amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 15-amaliy.pdf')">15-amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 16-amaliy.pdf')">16-amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 17-amaliy.pdf')">17-amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 18-amaliy.pdf')">18-amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 19-amaliy.pdf')">19-amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 20-amaliy.pdf')">20-amaliy</a>
+            </div>
+            <div class="turi" onclick="toggle('yon4f1l')">🔬 Laboratoriya</div>
+            <div id="yon4f1l" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('Oz 6-Labaratoriya ishi.pdf')">6-Lab ishi</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 7-Labaratoriya ishi.pdf')">7-Lab ishi</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 8-Labaratoriya ishi.pdf')">8-Lab ishi</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 9-Labaratoriya ishi.pdf')">9-Lab ishi</a>
+                <a href="#" class="file-link" onclick="openPdf('Oz 10-Labaratoriya ishi.pdf')">10-Lab ishi</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="yonalish" onclick="toggle('yon5')">🎓 QISHLOQ XO'JALIGI MAXSULOTLARINI SAQLASH VA QAYTA ISHLASH</div>
+    <div id="yon5" style="display:none">
+        <div class="fan" onclick="toggle('yon5f1')">📘 Muhandislik va kompyuter grafikasi</div>
+        <div id="yon5f1" style="display:none">
+            <div class="turi" onclick="toggle('yon5f1m')">✍️ Ma'ruzalar</div>
+            <div id="yon5f1m" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('QX 6-ma\'ruza.pdf')">6-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('QX 7-ma\'ruza.pdf')">7-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('QX 8-ma\'ruza.pdf')">8-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('QX 9-ma\'ruza.pdf')">9-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('QX 10-ma\'ruza.pdf')">10-Ma'ruza</a>
+            </div>
+            <div class="turi" onclick="toggle('yon5f1a')">🛠 Amaliy</div>
+            <div id="yon5f1a" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('QX 9-amaliy ish.pdf')">9-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QX 10-amaliy ish.pdf')">10-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QX 11-amaliy ish.pdf')">11-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QX 12-amaliy ish.pdf')">12-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QX 13-amaliy ish.pdf')">13-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QX 14-amaliy ish.pdf')">14-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QX 15-amaliy ish.pdf')">15-Amaliy</a>
+            </div>
+            <div class="turi" onclick="toggle('yon5f1l')">🔬 Laboratoriya</div>
+            <div id="yon5f1l" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('QX 3-Labaratoriya ishi.pdf')">3-Lab ishi</a>
+                <a href="#" class="file-link" onclick="openPdf('QX 4-Labaratoriya ishi.pdf')">4-Lab ishi</a>
+                <a href="#" class="file-link" onclick="openPdf('QX 5-Labaratoriya ishi.pdf')">5-Lab ishi</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="yonalish" onclick="toggle('yon6')">🎓 AGRONOMIYA YO'NALISHI</div>
+    <div id="yon6" style="display:none">
+        <div class="fan" onclick="toggle('yon6f1')">📘 Qishloq xo'jaligida AKT</div>
+        <div id="yon6f1" style="display:none">
+            <div class="turi" onclick="toggle('yon6f1m')">✍️ Ma'ruzalar</div>
+            <div id="yon6f1m" class="file-list">
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (1).pdf')">1-Ma'ruza</a>
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (2).pdf')">2-Ma'ruza</a>
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (3).pdf')">3-Ma'ruza</a>
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (4).pdf')">4-Ma'ruza</a> 
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (5).pdf')">5-Ma'ruza</a>
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (6).pdf')">6-Ma'ruza</a>
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (7).pdf')">7-Ma'ruza</a>
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (8).pdf')">8-Ma'ruza</a>
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (9).pdf')">9-Ma'ruza</a>
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (10).pdf')">10-Ma'ruza</a>
+            </div>
+            <div class="turi" onclick="toggle('yon6f1a')">🛠 Amaliy</div>
+            <div id="yon6f1a" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 1-amaliy mashg\'ulot.pdf')">1-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 2-amaliy mashg\'ulot.pdf')">2-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 3-amaliy mashg\'ulot.pdf')">3-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 4-amaliy mashg\'ulot.pdf')">4-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 5-amaliy mashg\'ulot.pdf')">5-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 6-amaliy mashg\'ulot.pdf')">6-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 7-amaliy mashg\'ulot.pdf')">7-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 8-amaliy mashg\'ulot.pdf')">8-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 9-amaliy mashg\'ulot.pdf')">9-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 10-amaliy mashg\'ulot.pdf')">10-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 11-amaliy mashg\'ulot.pdf')">11-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 12-amaliy mashg\'ulot.pdf')">12-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 13-amaliy mashg\'ulot.pdf')">13-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 14-amaliy mashg\'ulot.pdf')">14-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 15-amaliy mashg\'ulot.pdf')">15-Amaliy</a>
+            </div>
+            <div class="turi" onclick="toggle('yon6f1l')">🔬 Laboratoriya</div>
+            <div id="yon6f1l" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 1-laboratoriya ishi.pdf')">1-Lab ishi</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 2-laboratoriya ishi.pdf')">2-Lab ishi</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 3-laboratoriya ishi.pdf')">3-Lab ishi</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 4-laboratoriya ishi.pdf')">4-Lab ishi</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 5-laboratoriya ishi.pdf')">5-Lab ishi</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="yonalish" onclick="toggle('yon7')">🎓 SUV BIORESURISLARI YO'NALISHI</div>
+    <div id="yon7" style="display:none">
+        <div class="fan" onclick="toggle('yon7f1')">📘 Qishloq xo'jaligida AKT</div>
+        <div id="yon7f1" style="display:none">
+            <div class="turi" onclick="toggle('yon7f1m')">✍️ Ma'ruzalar</div>
+            <div id="yon7f1m" class="file-list">
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (1).pdf')">1-Ma'ruza</a>
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (2).pdf')">2-Ma'ruza</a>
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (3).pdf')">3-Ma'ruza</a>
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (4).pdf')">4-Ma'ruza</a> 
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (5).pdf')">5-Ma'ruza</a>
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (6).pdf')">6-Ma'ruza</a>
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (7).pdf')">7-Ma'ruza</a>
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (8).pdf')">8-Ma'ruza</a>
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (9).pdf')">9-Ma'ruza</a>
+ <a href="#" class="file-link" onclick="openPdf('QXAKT 1-maruza (10).pdf')">10-Ma'ruza</a>
+
+</div>
+            <div class="turi" onclick="toggle('yon7f1a')">🛠 Amaliy</div>
+            <div id="yon7f1a" class="file-list">
+               <a href="#" class="file-link" onclick="openPdf('QXAKT 1-amaliy mashg\'ulot.pdf')">1-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 2-amaliy mashg\'ulot.pdf')">2-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 3-amaliy mashg\'ulot.pdf')">3-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 4-amaliy mashg\'ulot.pdf')">4-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 5-amaliy mashg\'ulot.pdf')">5-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 6-amaliy mashg\'ulot.pdf')">6-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 7-amaliy mashg\'ulot.pdf')">7-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 8-amaliy mashg\'ulot.pdf')">8-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 9-amaliy mashg\'ulot.pdf')">9-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 10-amaliy mashg\'ulot.pdf')">10-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 11-amaliy mashg\'ulot.pdf')">11-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 12-amaliy mashg\'ulot.pdf')">12-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 13-amaliy mashg\'ulot.pdf')">13-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 14-amaliy mashg\'ulot.pdf')">14-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 15-amaliy mashg\'ulot.pdf')">15-Amaliy</a>
+            </div>
+            <div class="turi" onclick="toggle('yon7f1l')">🔬 Laboratoriya</div>
+            <div id="yon7f1l" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 1-laboratoriya ishi.pdf')">1-Lab ishi</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 2-laboratoriya ishi.pdf')">2-Lab ishi</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 3-laboratoriya ishi.pdf')">3-Lab ishi</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 4-laboratoriya ishi.pdf')">4-Lab ishi</a>
+                <a href="#" class="file-link" onclick="openPdf('QXAKT 5-laboratoriya ishi.pdf')">5-Lab ishi</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="yonalish" onclick="toggle('yon8')">🎓 BOSHQA YO'NALISHLARI.......</div>
+    <div id="yon8" style="display:none">
+        <div class="fan" onclick="toggle('yon8f1')">📘 BOSHQA FANLAR....</div>
+        <div id="yon8f1" style="display:none">
+            <div class="turi" onclick="toggle('yon8f1m')">✍️ Ma'ruzalar</div>
+            <div id="yon8f1m" class="file-list"><a href="#" class="file-link" onclick="openPdf('fayl.pdf')">Fayl nomi</a></div>
+            <div class="turi" onclick="toggle('yon8f1a')">🛠 Amaliy</div>
+            <div id="yon8f1a" class="file-list"><a href="#" class="file-link" onclick="openPdf('fayl.pdf')">Fayl nomi</a></div>
+            <div class="turi" onclick="toggle('yon8f1l')">🔬 Laboratoriya</div>
+            <div id="yon8f1l" class="file-list"><a href="#" class="file-link" onclick="openPdf('fayl.pdf')">Fayl nomi</a></div>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px; padding: 15px; border-top: 1px solid #455a64; font-size: 0.8rem; color: #bdc3c7; line-height: 1.5;">
+        <p style="color: var(--green); font-weight: bold; margin-bottom: 5px;">
+__________<img src="1.jpg" width="220" height="200" alt="Muallif rasmi"></p>
+        <p style="margin: 0; color: white;"><strong>_________Sulaymonov Mirobid Abduxolikovich</strong></p>
+        <p style="margin: 5px 0 0 0;">Samarqand davlat veterinariya meditsinasi, chorvachilik va biotexnologiyalar universiteti</p>
+        <p style="margin: 5px 0 0 0; font-style: italic;">Axborot texnologiyalari, tabiiy va aniq fanlar kafedrasi o'qituvchisi 
+<br> telefon: +998944740609 
+<br>telegram: @mirobid30</p>
+        <p style="margin: 10px 0 0 0; text-align: center; border: 1px solid #7f8c8d; border-radius: 3px; padding: 2px;">2025-2026 o'quv yili</p>
+    </div>
+
+</div> <div id="viewer-container">
+    <div id="top-bar">Hujjat: <span id="doc-name" style="color:var(--green)">Tanlanmagan</span></div>
+    <div id="viewer-main" style="height: 100%;">
+        <div id="empty" class="empty-view">
+            <p>Faylni ko'rish uchun menyudan tanlang</p>
+        </div>
+        <iframe id="pdf-frame" style="display:none"></iframe>
+    </div>
+</div>
+
+<script>
+    function toggle(id) {
+        let x = document.getElementById(id);
+        if (x) {
+            x.style.display = (x.style.display === "block") ? "none" : "block";
+        }
+    }
+
+    function openPdf(fileName) {
+        document.getElementById('doc-name').innerText = fileName;
+        const frame = document.getElementById('pdf-frame');
+        const empty = document.getElementById('empty');
+        frame.src = fileName;
+        frame.style.display = "block";
+        empty.style.display = "none";
+    }
+</script>
+
+</body>
+</html>
