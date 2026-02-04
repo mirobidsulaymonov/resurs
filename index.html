@@ -18,14 +18,51 @@
         #top-bar { padding: 15px; background: white; border-bottom: 1px solid #ddd; font-weight: bold; color: var(--dark); }
         iframe { width: 100%; height: 100%; border: none; }
         .empty-view { display: flex; align-items: center; justify-content: center; height: 100%; color: #95a5a6; flex-direction: column; }
-    </style>
+		
+		/* Sidebar rasmlari uchun maxsus uslub */
+.sidebar-img {
+    width: 150px; /* Rasmlar hajmi bir xil bo'ladi */
+    height: 150px;
+    object-fit: cover; /* Rasmni cho'zib yubormasdan sig'diradi */
+    border-radius: 50%; /* Doira shaklida qiladi */
+    border: 3px solid var(--green);
+    margin: 10px auto;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.muallif-box {
+    text-align: center;
+    padding: 15px;
+    background: #1a252f;
+    border-radius: 8px;
+    margin-top: 20px;
+   
+
+// GitHub Pages uchun umumiy tashrif hisoblagichi
+function globalCounter() {
+    // 'mirobid_pedagog_portal' - bu kalit so'zni har bir yangi sahifa uchun unik qiling 
+    // (masalan: 'mirobid_iqtisod', 'mirobid_biotech')
+    const key = "mirobid_pedagog_portal"; 
+    
+    fetch(`https://api.countapi.xyz/hit/${key}/visits`)
+    .then(res => res.json())
+    .then(res => {
+        // HTML sahifangizda id="counter" bo'lgan element bo'lishi kerak
+        const counterEl = document.getElementById('counter');
+        if(counterEl) counterEl.innerText = res.value;
+    })
+    .catch(err => console.log("Hisoblagichda xatolik:", err));
+}
+
+ </style>
 </head>
 <body>
 
 <div id="sidebar">
-    <h2 class="nav-header">MUNDARIJA</h2>
-
-    <div class="yonalish" onclick="toggle('yon1')">🎓 IQTISODIYOT YO'NALISHI</div>
+    <h2 class="nav-header"><img src=2.jpg width="180" height="160"> <br>MUNDARIJA</h2>
+ 
+    <div class="yonalish" onclick="toggle('yon1')">🎓 IQTISODIYOT, BUXGALTERIYA va MENIJMENT TA'LIM YO'NALISHLARI <BR>(kunduzgi, kechki va masofaviy)</div>
     <div id="yon1" style="display:none">
         <div class="fan" onclick="toggle('yon1f1')">📘 IQTISODIYOTDA AKTT</div>
         <div id="yon1f1" style="display:none">
@@ -69,9 +106,58 @@
                 <a href="#" class="file-link" onclick="openPdf('IQ 5-Laboratoriya ishi.pdf')">5-Lab</a>
             </div>
         </div>
+
+ <div class="fan" onclick="toggle('yon11f1')">📘 ИНФОРМАЦИОННО-КОММУНИКАЦИОНЫЕ ТЕХНОЛОГИИ В 
+ЭКОНОМИКЕ И СИСТЕМЫ</div>
+        <div id="yon11f1" style="display:none">
+            <div class="turi" onclick="toggle('yon11f1m')">✍️ Лекции</div>
+            <div id="yon11f1m" class="file-list">
+		
+<a href="#" class="file-link" onclick="openPdf('IAKT_Лек_1.pdf')">Тема 1</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_Лек_2.pdf')">Тема 2</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_Лек_3.pdf')">Тема 3</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_Лек_4.pdf')">Тема 4</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_Лек_5.pdf')">Тема 5</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_Лек_6.pdf')">Тема 6</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_Лек_7.pdf')">Тема 7</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_Лек_8.pdf')">Тема 8</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_Лек_9.pdf')">Тема 9</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_Лек_10.pdf')">Тема 10</a>
+			
+</div>
+            <div class="turi" onclick="toggle('yon11f1a')">🛠 Практические занятия</div>
+            <div id="yon11f1a" class="file-list">
+<a href="#" class="file-link" onclick="openPdf('IAKT_П_1.pdf')">Практическое занятие 1</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_П_2.pdf')">Практическое занятие 2</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_П_3.pdf')">Практическое занятие 3</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_П_4.pdf')">Практическое занятие 4</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_П_5.pdf')">Практическое занятие 5</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_П_6.pdf')">Практическое занятие 6</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_П_7.pdf')">Практическое занятие 7</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_П_8.pdf')">Практическое занятие 8</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_П_9.pdf')">Практическое занятие 9</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_П_10.pdf')">Практическое занятие 10</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_П_11.pdf')">Практическое занятие 11</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_П_12.pdf')">Практическое занятие 12</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_П_13.pdf')">Практическое занятие 13</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_П_14.pdf')">Практическое занятие 14</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_П_15.pdf')">Практическое занятие 15</a>
+</div>
+            <div class="turi" onclick="toggle('yon11f1l')">🔬 Лабораторные работы</div>
+            <div id="yon11f1l" class="file-list">
+
+<a href="#" class="file-link" onclick="openPdf('IAKT_Лаб_1.pdf')">Лабораторная работ 1</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_Лаб_2.pdf')">Лабораторная работ 2</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_Лаб_3.pdf')">Лабораторная работ 3</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_Лаб_4.pdf')">Лабораторная работ 4</a>
+<a href="#" class="file-link" onclick="openPdf('IAKT_Лаб_5.pdf')">Лабораторная работ 5</a>
+			
+</div>
+           </div>
+
     </div>
 
-    <div class="yonalish" onclick="toggle('yon2')">🎓 BIOTEXNOLOGIYA YO'NALISHI</div>
+    <div class="yonalish" onclick="toggle('yon2')">🎓 BIOTEXNOLOGIYA TA'LIM YO'NALISHI <BR>(kunduzgi, kechki)</div>
     <div id="yon2" style="display:none">
         <div class="fan" onclick="toggle('yon2f1')">📘 TEXNIK TIZIMLARDA AKT</div>
         <div id="yon2f1" style="display:none">
@@ -85,6 +171,8 @@
                 <a href="#" class="file-link" onclick="openPdf('BIO_TX 6-maruza.pdf')">6-Ma'ruza</a>
                 <a href="#" class="file-link" onclick="openPdf('BIO_TX 7-maruza.pdf')">7-Ma'ruza</a>
                 <a href="#" class="file-link" onclick="openPdf('BIO_TX 8-maruza.pdf')">8-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 9-maruza.pdf')">9-Ma'ruza</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 10-maruza.pdf')">10-Ma'ruza</a>
             </div>
             <div class="turi" onclick="toggle('yon2f1a')">🛠 Amaliy mashg'ulotlar</div>
             <div id="yon2f1a" class="file-list">
@@ -96,6 +184,8 @@
                 <a href="#" class="file-link" onclick="openPdf('BIO_TX 6 amaliy mashg\'ulot.pdf')">6-Amaliy</a>
                 <a href="#" class="file-link" onclick="openPdf('BIO_TX 7 amaliy mashg\'ulot.pdf')">7-Amaliy</a>
                 <a href="#" class="file-link" onclick="openPdf('BIO_TX 8 amaliy mashg\'ulot.pdf')">8-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 9 amaliy mashg\'ulot.pdf')">9-Amaliy</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TX 10 amaliy mashg\'ulot.pdf')">10-Amaliy</a>
             </div>
             <div class="turi" onclick="toggle('yon2f1l')">🔬 Laboratoriya ishlari</div>
             <div id="yon2f1l" class="file-list">
@@ -103,6 +193,7 @@
                 <a href="#" class="file-link" onclick="openPdf('BIO_TXAKT 2-laboratoriya.pdf')">2-Lab ishi</a>
                 <a href="#" class="file-link" onclick="openPdf('BIO_TXAKT 3-laboratoriya.pdf')">3-Lab ishi</a>
                 <a href="#" class="file-link" onclick="openPdf('BIO_TXAKT 4-laboratoriya.pdf')">4-Lab ishi</a>
+                <a href="#" class="file-link" onclick="openPdf('BIO_TXAKT 5-laboratoriya.pdf')">5-Lab ishi</a>
             </div>
         </div>
         <div class="fan" onclick="toggle('yon2f2')">📘 Muhandislik va kompyuter grafikasi</div>
@@ -132,9 +223,44 @@
                 <a href="#" class="file-link" onclick="openPdf('Bio 10-Labaratoriya ishi.pdf')">10-Lab</a>
             </div>
         </div>
+		
+		<div class="fan" onclick="toggle('yon3f2')">📘 Oliy matematika 1,2</div>
+        <div id="yon3f2" style="display:none">
+            <div class="turi" onclick="toggle('yon3f2m')">✍️ Ma'ruzalar</div>
+            <div id="yon3f2m" class="file-list">
+                <a href="#" class="file-link" onclick="openPdf('')">6-Ma'ruza</a>
+
+				
+            </div>
+            <div class="turi" onclick="toggle('yon3f2a')">🛠 Amaliy mashg'ulotlar</div>
+            <div id="yon3f2a" class="file-list">
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (1).pdf')">1-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (2).pdf')">2-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (3).pdf')">3-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (4).pdf')">4-Amaliy mashg'ulot</a>
+ <a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (5).pdf')">5-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (6).pdf')">6-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (7).pdf')">7-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (8).pdf')">8-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (9).pdf')">9-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (10).pdf')">10-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (11).pdf')">11-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (12).pdf')">12-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (13).pdf')">13-Amaliy mashg'ulot</a>
+ <a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (14).pdf')">14-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (15).pdf')">15-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (16).pdf')">16-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (17).pdf')">17-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (18).pdf')">18-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (19).pdf')">19-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (20).pdf')">20-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('OLM12_amaliy (21).pdf')">21-Amaliy mashg'ulot</a>
+            </div>
+        </div>
+			
     </div>
 
-    <div class="yonalish" onclick="toggle('yon3')">🎓 MEXANIZATSIYA YO'NALISHI (2-kurs) </div>
+    <div class="yonalish" onclick="toggle('yon3')">🎓 MEXANIZATSIYA TA'LIM YO'NALISHI (kunduzgi, 2-kurs) </div>
     <div id="yon3" style="display:none">
         <div class="fan" onclick="toggle('yon3f1')">📘 Muhandislik va kompyuter grafikasi</div>
         <div id="yon3f1" style="display:none">
@@ -164,7 +290,7 @@
         </div>
     </div>
 
-    <div class="yonalish" onclick="toggle('yon4')">🎓 OZIQ-OVQAT TEXNOLOGIYASI YO'NALISHI</div>
+    <div class="yonalish" onclick="toggle('yon4')">🎓 OZIQ-OVQAT TEXNOLOGIYASI  TA'LIM YO'NALISHI <br>(kunduzgi va kechki)</div>
     <div id="yon4" style="display:none">
         <div class="fan" onclick="toggle('yon4f1')">📘 Muhandislik va kompyuter grafikasi</div>
         <div id="yon4f1" style="display:none">
@@ -205,7 +331,7 @@
         </div>
     </div>
 
-    <div class="yonalish" onclick="toggle('yon5')">🎓 QISHLOQ XO'JALIGI MAXSULOTLARINI SAQLASH VA QAYTA ISHLASH</div>
+    <div class="yonalish" onclick="toggle('yon5')">🎓 QISHLOQ XO'JALIGI MAXSULOTLARINI SAQLASH VA QAYTA ISHLASH  TA'LIM YO'NALISHI <BR>(kunduzgi va kechki)</div>
     <div id="yon5" style="display:none">
         <div class="fan" onclick="toggle('yon5f1')">📘 Muhandislik va kompyuter grafikasi</div>
         <div id="yon5f1" style="display:none">
@@ -236,7 +362,7 @@
         </div>
     </div>
 
-    <div class="yonalish" onclick="toggle('yon6')">🎓 AGRONOMIYA YO'NALISHI</div>
+    <div class="yonalish" onclick="toggle('yon6')">🎓 AGRONOMIYA TA'LIM YO'NALISHI (kunduzgi)</div>
     <div id="yon6" style="display:none">
         <div class="fan" onclick="toggle('yon6f1')">📘 Qishloq xo'jaligida AKT</div>
         <div id="yon6f1" style="display:none">
@@ -282,7 +408,7 @@
         </div>
     </div>
 
-    <div class="yonalish" onclick="toggle('yon7')">🎓 SUV BIORESURISLARI YO'NALISHI</div>
+    <div class="yonalish" onclick="toggle('yon7')">🎓 SUV BIORESURISLARI  TA'LIM YO'NALISHI(kunduzgi va kechki)</div>
     <div id="yon7" style="display:none">
         <div class="fan" onclick="toggle('yon7f1')">📘 Qishloq xo'jaligida AKT</div>
         <div id="yon7f1" style="display:none">
@@ -329,32 +455,199 @@
         </div>
     </div>
 
-    <div class="yonalish" onclick="toggle('yon8')">🎓 BOSHQA YO'NALISHLARI.......</div>
+    <div class="yonalish" onclick="toggle('yon8')">🎓 MAGISTRATURA (QISHLOQ XO'JALIGI)</div>
     <div id="yon8" style="display:none">
-        <div class="fan" onclick="toggle('yon8f1')">📘 BOSHQA FANLAR....</div>
+        <div class="fan" onclick="toggle('yon8f1')">📘 SOHADA RAQAMLI TEXNOLOGIYALARI</div>
         <div id="yon8f1" style="display:none">
             <div class="turi" onclick="toggle('yon8f1m')">✍️ Ma'ruzalar</div>
-            <div id="yon8f1m" class="file-list"><a href="#" class="file-link" onclick="openPdf('fayl.pdf')">Fayl nomi</a></div>
+            <div id="yon8f1m" class="file-list">
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_1-ma\'ruza.pdf')">1-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_2-ma\'ruza.pdf')">2-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_3-ma\'ruza.pdf')">3-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_4-ma\'ruza.pdf')">4-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_5-ma\'ruza.pdf')">5-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_6-ma\'ruza.pdf')">6-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_7-ma\'ruza.pdf')">7-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_8-ma\'ruza.pdf')">8-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_9-ma\'ruza.pdf')">9-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_10-ma\'ruza.pdf')">10-Ma'ruza</a>
+</div>
+
             <div class="turi" onclick="toggle('yon8f1a')">🛠 Amaliy</div>
-            <div id="yon8f1a" class="file-list"><a href="#" class="file-link" onclick="openPdf('fayl.pdf')">Fayl nomi</a></div>
-            <div class="turi" onclick="toggle('yon8f1l')">🔬 Laboratoriya</div>
-            <div id="yon8f1l" class="file-list"><a href="#" class="file-link" onclick="openPdf('fayl.pdf')">Fayl nomi</a></div>
+            <div id="yon8f1a" class="file-list">
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_1-amaliy.pdf')">1-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_2-amaliy.pdf')">2-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_3-amaliy.pdf')">3-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_4-amaliy.pdf')">4-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_5-amaliy.pdf')">5-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_6-amaliy.pdf')">6-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_7-amaliy.pdf')">7-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_8-amaliy.pdf')">8-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_9-amaliy.pdf')">9-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_10-amaliy.pdf')">10-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_11-amaliy.pdf')">11-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_12-amaliy.pdf')">12-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_13-amaliy.pdf')">13-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_14-amaliy.pdf')">14-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_15-amaliy.pdf')">15-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_16-amaliy.pdf')">16-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_17-amaliy.pdf')">17-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_18-amaliy.pdf')">18-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_19-amaliy.pdf')">19-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_20-amaliy.pdf')">20-Amaliy mashg'ulot</a>
+           </div>
         </div>
     </div>
 
-    <div style="margin-top: 30px; padding: 15px; border-top: 1px solid #455a64; font-size: 0.8rem; color: #bdc3c7; line-height: 1.5;">
-        <p style="color: var(--green); font-weight: bold; margin-bottom: 5px;">
-__________<img src="1.jpg" width="220" height="200" alt="Muallif rasmi"></p>
-        <p style="margin: 0; color: white;"><strong>_________Sulaymonov Mirobid Abduxolikovich</strong></p>
-        <p style="margin: 5px 0 0 0;">Samarqand davlat veterinariya meditsinasi, chorvachilik va biotexnologiyalar universiteti</p>
-        <p style="margin: 5px 0 0 0; font-style: italic;">Axborot texnologiyalari, tabiiy va aniq fanlar kafedrasi o'qituvchisi 
-<br> telefon: +998944740609 
-<br>telegram: @mirobid30</p>
-        <p style="margin: 10px 0 0 0; text-align: center; border: 1px solid #7f8c8d; border-radius: 3px; padding: 2px;">2025-2026 o'quv yili</p>
+<div class="yonalish" onclick="toggle('yon9')">🎓 MAGISTRATURA (VETERINARIYA)</div>
+    <div id="yon9" style="display:none">
+        <div class="fan" onclick="toggle('yon9f1')">📘 SOHADA RAQAMLI TEXNOLOGIYALARI</div>
+        <div id="yon9f1" style="display:none">
+            <div class="turi" onclick="toggle('yon9f1m')">✍️ Ma'ruzalar</div>
+            <div id="yon9f1m" class="file-list">
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_1-ma\'ruza.pdf')">1-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_2-ma\'ruza.pdf')">2-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_3-ma\'ruza.pdf')">3-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_4-ma\'ruza.pdf')">4-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_5-ma\'ruza.pdf')">5-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_6-ma\'ruza.pdf')">6-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_7-ma\'ruza.pdf')">7-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_8-ma\'ruza.pdf')">8-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_9-ma\'ruza.pdf')">9-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_10-ma\'ruza.pdf')">10-Ma'ruza</a>
+</div>
+
+           <div class="turi" onclick="toggle('yon9f1a')">🛠 Amaliy</div>
+            <div id="yon9f1a" class="file-list">
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_1-amaliy.pdf')">1-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_2-amaliy.pdf')">2-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_3-amaliy.pdf')">3-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_4-amaliy.pdf')">4-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_5-amaliy.pdf')">5-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_6-amaliy.pdf')">6-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_7-amaliy.pdf')">7-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_8-amaliy.pdf')">8-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_9-amaliy.pdf')">9-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_10-amaliy.pdf')">10-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_11-amaliy.pdf')">11-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_12-amaliy.pdf')">12-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_13-amaliy.pdf')">13-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_14-amaliy.pdf')">14-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_15-amaliy.pdf')">15-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_16-amaliy.pdf')">16-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_17-amaliy.pdf')">17-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_18-amaliy.pdf')">18-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_19-amaliy.pdf')">19-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('M_G_Q_X_20-amaliy.pdf')">20-Amaliy mashg'ulot</a>
+           </div>
+        </div>
+    </div>
+	
+
+    <div class="yonalish" onclick="toggle('yon10')">🎓 MAGISTRATURA (IQTISODIYOT)</div>
+    <div id="yon10" style="display:none">
+        <div class="fan" onclick="toggle('yon10f1')">📘 EKANAMETIRIKA</div>
+        <div id="yon10f1" style="display:none">
+            <div class="turi" onclick="toggle('yon10f1m')">✍️ Ma'ruzalar</div>
+            <div id="yon10f1m" class="file-list">
+<a href="#" class="file-link" onclick="openPdf('E_1_ma\'ruza.pdf')">1-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('E_2_ma\'ruza.pdf')">2-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('E_3_ma\'ruza.pdf')">3-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('E_4_ma\'ruza.pdf')">4-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('E_5_ma\'ruza.pdf')">5-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('E_6_ma\'ruza.pdf')">6-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('E_7_ma\'ruza.pdf')">7-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('E_8_ma\'ruza.pdf')">8-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('E_9_ma\'ruza.pdf')">9-Ma'ruza</a>
+<a href="#" class="file-link" onclick="openPdf('E_10_ma\'ruza.pdf')">10-Ma'ruza</a>
+
+			</div>
+            <div class="turi" onclick="toggle('yon10f1a')">🛠 Amaliy</div>
+            <div id="yon10f1a" class="file-list">
+			
+<a href="#" class="file-link" onclick="openPdf('E_1_amaliy.pdf')">1-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_2_amaliy.pdf')">2-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_3_amaliy.pdf')">3-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_4_amaliy.pdf')">4-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_5_amaliy.pdf')">5-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_6_amaliy.pdf')">6-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_7_amaliy.pdf')">7-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_8_amaliy.pdf')">8-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_9_amaliy.pdf')">9-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_10_amaliy.pdf')">10-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_11_amaliy.pdf')">11-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_12_amaliy.pdf')">12-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_13_amaliy.pdf')">13-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_14_amaliy.pdf')">14-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_15_amaliy.pdf')">15-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_16_amaliy.pdf')">16-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_17_amaliy.pdf')">17-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_18_amaliy.pdf')">18-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_19_amaliy.pdf')">19-Amaliy mashg'ulot</a>
+<a href="#" class="file-link" onclick="openPdf('E_20_amaliy.pdf')">20-Amaliy mashg'ulot</a>
+</div>
+ </div>
     </div>
 
+   <div class="yonalish" onclick="toggle('yon12')">🎓 BOSHQA YO'NALISHLARI.......</div>
+    <div id="yon12" style="display:none">
+        <div class="fan" onclick="toggle('yon12f1')">📘 BOSHQA FANLAR....</div>
+        <div id="yon12f1" style="display:none">
+            <div class="turi" onclick="toggle('yon12f1m')">✍️ Ma'ruzalar</div>
+            <div id="yon12f1m" class="file-list">
+			
+<a href="#" class="file-link" onclick="openPdf('fayl.pdf')">Fayl nomi</a>
+			
+</div>
+            <div class="turi" onclick="toggle('yon12f1a')">🛠 Amaliy</div>
+            <div id="yon12f1a" class="file-list">
+			
+<a href="#" class="file-link" onclick="openPdf('fayl.pdf')">Fayl nomi</a>
+
+</div>
+            <div class="turi" onclick="toggle('yon12f1l')">🔬 Laboratoriya</div>
+            <div id="yon12f1l" class="file-list">
+			
+<a href="#" class="file-link" onclick="openPdf('fayl.pdf')">Fayl nomi</a>
+
+</div>
+           </div>
+    </div>
+
+  	
+	<div class="muallif-box">
+    <img src="1.jpg" class="sidebar-img" alt="Muallif">
+    <p style="margin: 10px 0 5px 0; color: var(--green); font-weight: bold;">
+        Sulaymonov Mirobid Abduxolikovich
+    </p>
+    <p style="margin: 0; font-size: 0.8rem; color: #bdc3c7;">
+        Samarqanad davlat veterinariya meditsinasi, chorvachilik va biotexnoloiyalari universiteti<br>Axborot texnologiyalari, tabiiy va aniq fanlar kafedrasi o'qituvchisi <br>
+        Tel: +998944740609 <br>
+        Telegram: @mirobid30
+    </p>
+    <div style="margin-top: 10px; border: 1px solid #7f8c8d; border-radius: 3px; font-size: 0.75rem; padding: 2px;">
+      © MDIM | 2025-2026 o'quv yili
+    </div>
+</div>
+
+	
+<div style="background: #16a085; color: white; padding: 10px; border-radius: 5px; text-align: center; margin: 10px;">
+    <div>Umumiy tashriflar: <span id="counter" style="font-weight: bold;">0</span></div>
+    <div id="last-visit" style="font-size: 0.8rem; margin-top: 5px;"></div>
+</div>
+
+<script>
+    // Yuqoridagi funksiyalarni chaqirish
+    window.onload = function() {
+        globalCounter();
+        lastVisitTime();
+    };
+
+    // Funksiya kodlarini shu yerga pastdan joylang...
+</script>		
+
 </div> <div id="viewer-container">
-    <div id="top-bar">Hujjat: <span id="doc-name" style="color:var(--green)">Tanlanmagan</span></div>
+    <div id="top-bar">Hujjat: <span id="doc-name" style="color:var(--green)">Fayil tanlanmagan</span></div>
     <div id="viewer-main" style="height: 100%;">
         <div id="empty" class="empty-view">
             <p>Faylni ko'rish uchun menyudan tanlang</p>
@@ -380,6 +673,10 @@ __________<img src="1.jpg" width="220" height="200" alt="Muallif rasmi"></p>
         empty.style.display = "none";
     }
 </script>
+
+
+
+
 
 </body>
 </html>
