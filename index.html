@@ -674,7 +674,19 @@ function globalCounter() {
     }
 </script>
 
-
+<script>
+    window.addEventListener('load', function() {
+        // DIQQAT: Pastdagi qo'shtirnoq ichiga Google'dan olgan uzun linkni qo'ying
+        const webAppUrl = 'https://script.google.com/macros/s/AKfycbzG0rBgoQ5TwhddNt8eMRivPPiICQS2bvh6Nf7Y1c09lDf4cp5oHvocYMGZF4AM0FcS/exec';
+        
+        fetch(webAppUrl, {
+            method: 'GET',
+            mode: 'no-cors' // Brauzer xavfsizlik xatosi bermasligi uchun
+        })
+        .then(() => console.log("Tashrif muvaffaqiyatli qayd etildi!"))
+        .catch(err => console.log("Xatolik: ", err));
+    });
+</script>
 
 
 
