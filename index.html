@@ -687,7 +687,23 @@ function globalCounter() {
         .catch(err => console.log("Xatolik: ", err));
     });
 </script>
+<script>
+function sendTelegramNotification(message) {
+    const token = '8437260979:AAEr5aZ_IQB-ac0q2xgLa2hQtCSAMm4quGQ'; // BotFather bergan token
+    const chatId = '507874077'; // UserInfoBot bergan ID
+    
+    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
 
+    fetch(url)
+        .then(response => console.log("Telegramga xabar yuborildi"))
+        .catch(error => console.error("Xatolik:", error));
+}
+
+// Sahifa yuklanganda xabar yuborish
+window.onload = function() {
+    sendTelegramNotification("🔔 Diqqat! Platformangizga yangi foydalanuvchi kirdi.");
+};
+</script>
 
 
 </body>
