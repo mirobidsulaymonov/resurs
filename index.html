@@ -676,33 +676,27 @@ function globalCounter() {
 
 <script>
     window.addEventListener('load', function() {
-        // DIQQAT: Pastdagi qo'shtirnoq ichiga Google'dan olgan uzun linkni qo'ying
+        // 1. Google Sheets-ga statistika yuborish
         const webAppUrl = 'https://script.google.com/macros/s/AKfycbzlIUjFkoEmO_s1SpCBa3L7ONnOgnwAHYvBPsKIpQGGSIUQUqdJleg8iGnBMBoifnAX/exec';
         
         fetch(webAppUrl, {
             method: 'GET',
-            mode: 'no-cors' // Brauzer xavfsizlik xatosi bermasligi uchun
+            mode: 'no-cors'
         })
-        .then(() => console.log("Tashrif muvaffaqiyatli qayd etildi!"))
-        .catch(err => console.log("Xatolik: ", err));
+        .then(() => console.log("Google Sheets: Tashrif qayd etildi"))
+        .catch(err => console.log("Google xatosi: ", err));
+
+        // 2. Telegramga xabar yuborish funksiyasi
+        const token = '8437260979:AAEr5aZ_IQB-ac0q2xgLa2hQtCSAMm4quGQ';
+        const chatId = '507874077';
+        const message = "🔔 Diqqat! Platformangizga yangi foydalanuvchi kirdi.";
+        
+        const telegramUrl = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+        fetch(telegramUrl)
+            .then(() => console.log("Telegram: Xabar yuborildi"))
+            .catch(err => console.error("Telegram xatosi:", err));
     });
-</script>
-<script>
-function sendTelegramNotification(message) {
-    const token = '8437260979:AAEr5aZ_IQB-ac0q2xgLa2hQtCSAMm4quGQ'; // BotFather bergan token
-    const chatId = '507874077'; // UserInfoBot bergan ID
-    
-    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
-
-    fetch(url)
-        .then(response => console.log("Telegramga xabar yuborildi"))
-        .catch(error => console.error("Xatolik:", error));
-}
-
-// Sahifa yuklanganda xabar yuborish
-window.onload = function() {
-    sendTelegramNotification("🔔 Diqqat! Platformangizga yangi foydalanuvchi kirdi.");
-};
 </script>
 
 
