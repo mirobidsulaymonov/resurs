@@ -670,6 +670,32 @@
                     }
                 ]
             },
+
+            {
+                title: "🎓 MEXANIZATSIYA TA'LIM YO'NALISHI (sirtqi, 2-kurs)",
+                subjects: [
+                    {
+                        title: "📘 Amaliy dasturlash",
+                        types: [
+                            {
+                                title: "✍️ Ma'ruzalar",
+                                files: seq(6, 10, i => `AD ${i}-ma'ruza.pdf`, i => `${i}-ma'ruza`)
+                            },
+                            {
+                                title: "🛠 Amaliy",
+                                files: seq(11, 20, i => `AD ${i}-amaliy.pdf`, i => `${i}-amaliy`)
+                            },
+                            {
+                                title: "🔬 Laboratoriya",
+                                files: [],
+                                emptyText: "Laboratoriya mashg'ulotlari mavjud emas!!!"
+                            }
+                        ]
+                    }
+                ]
+            },
+
+            
             {
                 title: "🎓 OZIQ-OVQAT TEXNOLOGIYASI TA'LIM YO'NALISHI <br>(kunduzgi va kechki)",
                 subjects: [
